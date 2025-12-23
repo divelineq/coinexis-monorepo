@@ -1,0 +1,11 @@
+{
+  "name": "@coinexis/ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "tags": [
+    "scope:shared",
+    "package:ui",
+    "type:buildable",
+    "storybook"
+  ]
+}
