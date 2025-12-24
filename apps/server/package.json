@@ -4,10 +4,9 @@
 	"description": "",
 	"license": "ISC",
 	"author": "",
-	"main": "server.ts",
 	"scripts": {
-    "server": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts"
-  },
+		"server": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts"
+	},
 	"nx": {
 		"targets": {
 			"server": {
@@ -17,20 +16,6 @@
 		}
 	},
 	"private": true,
-	"devDependencies": {
-		"@biomejs/biome": "^2.1.2",
-		"@types/bun": "latest",
-		"@types/compression": "^1.8.1",
-		"@types/cors": "^2.8.19",
-		"@types/express": "^5.0.3",
-		"@types/node": "^24.0.14",
-		"biome": "^0.3.3",
-		"nodemon": "^3.1.10",
-		"ts-node-dev": "^2.0.0"
-	},
-	"peerDependencies": {
-		"typescript": "^5"
-	},
 	"dependencies": {
 		"axios": "^1.10.0",
 		"compression": "^1.8.0",
@@ -40,11 +25,21 @@
 		"express": "^5.1.0",
 		"express-winston": "^4.2.0",
 		"helmet": "^8.1.0",
-		"pg": "^8.16.3",
-		"ts-node": "^10.9.2",
 		"winston": "^3.17.0",
 		"winston-daily-rotate-file": "^5.0.0",
-		"ws": "^8.18.3",
 		"zod": "^4.0.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.2",
+		"@types/bun": "latest",
+		"@types/compression": "^1.8.1",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.14",
+		"biome": "^0.3.3",
+		"ts-node-dev": "^2.0.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
 	}
 }

@@ -10,7 +10,7 @@ type Props = {
 	recvWindow: string;
 };
 
-export function generateSignature({
+function generateSignature({
 	apiKey,
 	apiSecret,
 	timestamp,

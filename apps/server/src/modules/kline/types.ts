@@ -51,7 +51,7 @@ export interface OhlcData {
 	close: number;
 }
 
-export type RawKlineItem = [
+type RawKlineItem = [
 	string, // timestamp в мс
 	string, // open
 	string, // high
