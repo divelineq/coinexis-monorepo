@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { PortfolioService } from "./service";
 
-export const portfolioRouter = Router();
+export const portfolioRouter: Router = Router();
 const service = new PortfolioService();
 
 portfolioRouter.get("/", async (req, res) => {

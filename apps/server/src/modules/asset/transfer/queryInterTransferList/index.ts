@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { QueryInterTransferListService } from "./service";
 
-const router = Router();
+const router: Router = Router();
 const service = new QueryInterTransferListService();
 
 //* внутренние записи о переводах между разными типами счетов под одним и тем же UID

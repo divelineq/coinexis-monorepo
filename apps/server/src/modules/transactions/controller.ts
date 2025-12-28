@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { TransactionService } from "./service";
 
-export const transactionRouter = Router();
+export const transactionRouter: Router = Router();
 const service = new TransactionService();
 
 transactionRouter.get("/", async (req, res) => {

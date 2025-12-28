@@ -43,8 +43,6 @@ export default [
 			"**/*.mjs",
 		],
 		// Override or add rules here
-		rules: {
-			"import/no-cycle": ["error", { maxDepth: Infinity }],
-		},
+		rules: {},
 	},
 ];

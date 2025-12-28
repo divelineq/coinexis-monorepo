@@ -1,20 +1,17 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "skipLibCheck": true
+    "target": "ES2020", //? Указывает, в какой стандарт JS компилировать 
+    "module": "commonjs", //? Формат модулей в итоговом JS
+    "esModuleInterop": true, //? Позволяет корректно импортировать CommonJS пакеты через import default
+    "emitDeclarationOnly": false, //? Генерирует не только .d.ts, но и .js файлы
+    "moduleResolution": "node", //? Определяет, как искать модули при import — по логике Node.js
+    "forceConsistentCasingInFileNames": true, //? Проверяет, чтобы регистр имён файлов совпадал (важно для Linux)
+    "strict": true, //? Включает все строгие проверки типов (лучше всегда true)
+    "skipLibCheck": true, //? Пропускает проверку типов в зависимостях (ускоряет сборку)
+    "baseUrl": "./", //? Базовый путь для относительных и алиасных импортов (используется с paths)
+    "noImplicitReturns": false
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts"
-  ]
+  "include": ["./src/**/*"], //? Указывает какие файлы включать в компиляцию
+  "exclude": ["node_modules", "**/*.test.ts"] //? Указывает какие файлы исключать из компиляции
 }

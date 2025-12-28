@@ -1,16 +1,16 @@
 {
   "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
-  "references": [
+  "compileOnSave": false, //? Отключает автоматическую сборку при сохранении файлов в IDE (VSCode)
+  "files": [], //? Пустой список — этот tsconfig НЕ компилирует файлы напрямую, только управляет
+  "references": [ //? Список всех проектов
     {
       "path": "./apps/client"
     },
     {
-      "path": "./apps/server"
+      "path": "./apps/server" 
     },
     {
-      "path": "./packages/ui"
+      "path": "./packages/ui" 
     }
   ]
 }

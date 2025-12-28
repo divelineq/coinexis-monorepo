@@ -8,7 +8,7 @@ import { portfolioRouter } from "./modules/portfolio/controller";
 import { tickersRouter } from "./modules/tickers/controller";
 import { transactionRouter } from "./modules/transactions/controller";
 
-const app = express();
+const app: express.Application = express();
 
 setupMiddlewares(app);
 

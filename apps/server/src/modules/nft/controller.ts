@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { NftService } from "./service";
 
-export const nftRouter = Router();
+export const nftRouter: Router = Router();
 const service = new NftService();
 
 nftRouter.get("/", async (req, res) => {

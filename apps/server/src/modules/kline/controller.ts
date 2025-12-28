@@ -2,7 +2,7 @@ import { Router } from "express";
 import { KlineService } from "./service";
 import type { KlineCategories, KlineIntervals } from "./types";
 
-export const klineRouter = Router();
+export const klineRouter: Router = Router();
 const service = new KlineService();
 
 klineRouter.get("/", async (req, res) => {

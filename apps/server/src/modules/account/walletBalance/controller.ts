@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { WalletBalanceService } from "./service";
 
-export const walletBalanceRouter = Router();
+export const walletBalanceRouter: Router = Router();
 const service = new WalletBalanceService();
 
 //* выдает баланс активов в аккаунте финансирования

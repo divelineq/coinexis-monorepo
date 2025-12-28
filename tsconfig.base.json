@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "importHelpers": true,
-    "isolatedModules": true,
-    "lib": [
-      "ESNext"
-    ],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "es2022",
+    "composite": true, //? Разрешает проект использовать ссылки (project references) и инкрементальные сборки
+    "emitDeclarationOnly": false, //? Генерирует только .d.ts файлы без .js (удобно в библиотеках)
+    "importHelpers": true, //? Использует вспомогательные функции из tslib, вместо вставки их в каждый файл
+    "isolatedModules": true, //? Проверяет, что каждый файл компилируется изолированно
+    "lib": ["ESNext"], //? Подключает типы стандартной библиотеки, соответствующие новейшему стандарту JS
+    "module": "esnext", //? Определяет синтаксис модулей в выходном коде
+    "moduleResolution": "bundler", //? Использует стратегию разрешения импортов, как у сборщиков (Vite/Webpack)
+    "noEmitOnError": true, //? Не создаёт выходные файлы, если есть ошибки компиляции
+    "noFallthroughCasesInSwitch": true, //? Ошибка при переходе между case без break в switch
+    "noImplicitOverride": true, //? Требует указывать override при переопределении методов родителя
+    "noImplicitReturns": true, //? Ошибка, если не во всех ветках функции есть return
+    "noUnusedLocals": true, //? Ошибка, если объявлены, но не используются переменные
+    "skipLibCheck": true, //? Пропускает проверку типов в node_modules для ускорения сборки
+    "strict": true, //? Включает все строгие проверки типов TypeScript
+    "target": "es2022", //? Генерирует код под стандарт ES2022
+    "outDir": "./dist/server",
+    "paths": {
+      "@ui/*": ["packages/ui/src/*"], 
+      "@client/*": ["apps/client/src/*"],
+      "@server/*": ["apps/server/src/*"] 
+    }
   }
 }

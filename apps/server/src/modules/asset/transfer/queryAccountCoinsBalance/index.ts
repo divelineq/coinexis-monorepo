@@ -2,7 +2,7 @@ import { Router } from "express";
 import { QueryAccountCoinsBalanceService } from "./service";
 import type { WithBonus } from "./types";
 
-const router = Router();
+const router: Router = Router();
 const service = new QueryAccountCoinsBalanceService();
 
 //* выдает список активов
