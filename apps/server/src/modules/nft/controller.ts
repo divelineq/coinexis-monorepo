@@ -8,8 +8,6 @@ nftRouter.get("/", async (req, res) => {
 	try {
 		const { limit, offset, wallet, pagination } = req.query;
 
-		console.log(req.query);
-
 		if (!wallet) {
 			return res.status(400).json({
 				error: "Required query params: address",

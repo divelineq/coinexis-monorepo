@@ -13,7 +13,7 @@ const app: express.Application = express();
 setupMiddlewares(app);
 
 app.get("/healthcheck", (_, res) => {
-	console.log(`[HEALTHCHECK] ${new Date().toISOString()} - OK`);
+	console.info(`[HEALTHCHECK] ${new Date().toISOString()} - OK`);
 	res.status(200).json({ status: "ok", message: "Сервер работает" });
 });
 

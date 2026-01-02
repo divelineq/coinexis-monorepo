@@ -5,6 +5,8 @@
     "classix",
     "healthcheck",
     "highcharts",
+    "oxlint",
+    "oxlintrc",
     "solana",
     "tronweb",
     "viem"

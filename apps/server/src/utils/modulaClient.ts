@@ -17,11 +17,9 @@ export class ModuleClient {
 		);
 
 		const queryString = new URLSearchParams(filteredParams).toString();
-
 		const url = `${BASE_URL}${path}?${queryString}`;
-		console.log("Request:", url);
-
 		const response = await axios.get<T>(url, { headers });
+
 		return response.data;
 	}
 }
