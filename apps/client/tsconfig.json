@@ -1,14 +1,38 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "jsx": "react-jsx",
     "target": "esnext",
     "module": "esnext",
+    "moduleResolution": "bundler",
     "noImplicitAny": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
+    "noImplicitReturns": false,
     "rootDir": "./src",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@ui": [
+        "ui"
+      ],
+      "@api": [
+        "api"
+      ],
+      "@features": [
+        "features"
+      ],
+      "@hooks": [
+        "hooks"
+      ]
+    },
   },
   "include": [
     "./src/**/*"
@@ -17,14 +41,4 @@
     "node_modules",
     "**/*.test.ts"
   ],
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ],
-  "extends": "../../tsconfig.base.json"
 }
