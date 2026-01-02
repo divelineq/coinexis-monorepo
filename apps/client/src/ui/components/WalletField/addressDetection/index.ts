@@ -34,7 +34,9 @@ export function addressDetection(raw: string): AddressDetectionResult {
 				isValid: true,
 				network: DetectedNetwork.Solana,
 			};
-		} catch {}
+		} catch {
+			console.error("Failed to decode Solana address");
+		}
 	}
 
 	//* === Bitcoin
@@ -63,7 +65,9 @@ export function addressDetection(raw: string): AddressDetectionResult {
 					network: DetectedNetwork.Cosmos,
 				};
 			}
-		} catch {}
+		} catch {
+			console.error("Failed to decode Cosmos address");
+		}
 	}
 
 	//* === Aptos

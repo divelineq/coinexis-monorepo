@@ -1,0 +1,16 @@
+Dockerfile
+.gitlab-ci.yml
+nginx.conf
+assets_generator.js
+README.md
+.npmrc
+.editorconfig
+.vscode
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/typescriptreact.code-snippets
+.husky
+GitVersion.yml
+cspell.config.yaml
+lint-staged.config.js

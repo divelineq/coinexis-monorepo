@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "useInferencePlugins": false,
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",
@@ -69,24 +70,6 @@
       }
     },
     {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e",
-        "ciTargetName": "e2e-ci"
-      }
-    },
-    {
-      "plugin": "@nx/js/typescript",
-      "include": [
-        "libs/shared/models/*"
-      ],
-      "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        }
-      }
-    },
-    {
       "plugin": "@nx/vitest",
       "options": {
         "testTargetName": "test"
@@ -105,12 +88,38 @@
     }
   ],
   "targetDefaults": {
-    "test": {
+    "build": {
+      "cache": true,
       "dependsOn": [
         "^build"
       ]
     },
-    "@nx/esbuild:esbuild": {
+    "typecheck": {
+      "cache": true
+    },
+    "build-storybook": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "storybook-production"
+      ]
+    },
+    "@nx/vite:test": {
+      "inputs": [
+        "default"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "options": {
+        "passWithNoTests": true,
+        "watch": false
+      }
+    },
+    "@nx/vite:build": {
       "cache": true,
       "dependsOn": [
         "^build"

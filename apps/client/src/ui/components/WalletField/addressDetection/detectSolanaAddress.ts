@@ -17,7 +17,9 @@ export function validateSolanaAddress(
 				network: DetectedNetwork.Solana,
 			};
 		}
-	} catch {}
+	} catch {
+		console.error("Failed to decode Solana address");
+	}
 
 	return null;
 }

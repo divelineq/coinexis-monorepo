@@ -6,14 +6,6 @@
 	"scripts": {
 		"server": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts"
 	},
-	"nx": {
-		"targets": {
-			"server": {
-				"command": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
-				"continuous": true
-			}
-		}
-	},
 	"private": true,
 	"dependencies": {
 		"axios": "^1.10.0",
