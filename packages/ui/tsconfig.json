@@ -1,4 +1,8 @@
 {
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist/packages/ui"
+  },
   "files": [],
   "include": [],
   "references": [
@@ -12,5 +16,4 @@
       "path": "./tsconfig.storybook.json"
     }
   ],
-  "extends": "../../tsconfig.base.json"
 }
