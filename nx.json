@@ -95,6 +95,7 @@
       ]
     },
     "typecheck": {
+      "outputs": [],
       "cache": true
     },
     "build-storybook": {
