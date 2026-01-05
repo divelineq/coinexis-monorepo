@@ -5,27 +5,27 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-	plugins: [
-		tailwindcss(),
-		tsconfigPaths(),
-		tanstackRouter({
-			target: "react",
-			autoCodeSplitting: true,
-			routesDirectory: "./src/routes",
-		}),
-		react({
-			babel: {
-				plugins: ["babel-plugin-react-compiler"],
-			},
-		}),
-	],
-	server: {
-		proxy: {
-			"/api": {
-				target: "http://localhost:4200",
-				changeOrigin: true,
-				secure: true,
-			},
-		},
-	},
+  plugins: [
+    tsconfigPaths(),
+    tailwindcss(),
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+      routesDirectory: "./src/routes",
+    }),
+    react({
+      babel: {
+        plugins: ["babel-plugin-react-compiler"],
+      },
+    }),
+  ],
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:4200",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 });

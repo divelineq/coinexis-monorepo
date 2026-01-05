@@ -16,6 +16,8 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "strict": true,
+    "rootDir": ".",
+    "baseUrl": ".",
     "target": "esnext",
     "outDir": "./dist",
   }
