@@ -18,18 +18,18 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,  
+    "baseUrl": ".",
     "paths": {
       "@api": [
-        "apps/client/src/api"
+        "src/api"
       ],
       "@features": [
-        "apps/client/src/features"
+        "src/features"
       ],
       "@hooks": [
-        "apps/client/src/hooks"
+        "src/hooks"
       ],
-      "@ui": ["packages/ui/src/index.ts"]
-
+      "@ui": ["../../packages/ui/src"]
     },
   },
   "references": [{"path": "../../packages/ui/tsconfig.json"}],
