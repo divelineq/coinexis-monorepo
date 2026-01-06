@@ -1,5 +1,5 @@
-import { server } from "mocks/server";
 import { afterAll, afterEach, beforeAll } from "vitest";
+import { server } from "../mocks/server";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

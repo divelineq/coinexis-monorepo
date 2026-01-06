@@ -25,7 +25,7 @@ function Home() {
               в удобном интерфейсе, без регистрации, в духе Web3.
             </p>
             <Button>
-              <Link to="/market/spot">Попробовать</Link>
+              <Link to="/market/spot">Просмотр валюты</Link>
             </Button>
           </div>
           <motion.div

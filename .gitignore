@@ -16,7 +16,6 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
-tsconfig.tsbuildinfo
 
 # IDE - VSCode
 .vscode/*
@@ -38,6 +37,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+*.tsbuildinfo
 
 .nx
 .nx/cache

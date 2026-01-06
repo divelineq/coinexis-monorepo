@@ -1,43 +1,43 @@
-{
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": false,
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
-    "strict": true,
-    "skipLibCheck": true,
-    "noEmit": true,  
-    "baseUrl": ".",
-    "paths": {
-      "@api": [
-        "src/api"
+  {
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": false,
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "lib": [
+        "DOM",
+        "ESNext"
       ],
-      "@features": [
-        "src/features"
-      ],
-      "@hooks": [
-        "src/hooks"
-      ],
-      "@ui": ["../../packages/ui/src"]
+      "strict": true,
+      "skipLibCheck": true,
+      "noEmit": true,  
+      "baseUrl": ".",
+      "paths": {
+        "@api": [
+          "src/api"
+        ],
+        "@features": [
+          "src/features"
+        ],
+        "@hooks": [
+          "src/hooks"
+        ],
+        "@ui": ["../../packages/ui/src"]
+      },
     },
-  },
-  "references": [{"path": "../../packages/ui/tsconfig.json"}],
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts"
-  ]
-}
+    "references": [{"path": "../../packages/ui/tsconfig.json"}],
+    "include": [
+      "./src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "**/*.test.ts"
+    ]
+  }

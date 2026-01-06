@@ -8,7 +8,7 @@ import { getStartIcon } from "./getStartIcon";
 
 type Props = {
   onChange: (val: string) => void;
-  isPending: boolean;
+  isPending?: boolean;
 };
 
 const buildMessage = (errors: string[], success: boolean) => {
@@ -25,7 +25,7 @@ const buildMessage = (errors: string[], success: boolean) => {
   return null;
 };
 
-function WalletField({ onChange, isPending }: Props) {
+function WalletField({ onChange }: Props) {
   const form = useForm({
     defaultValues: { address: "" },
     onSubmit: (values) => onChange(values.value.address),
@@ -55,7 +55,7 @@ function WalletField({ onChange, isPending }: Props) {
           return (
             <div className="w-full flex gap-2 items-center justify-center">
               <Input
-                className="min-w-[430px]"
+                className="min-w-107.5"
                 startIcon={getStartIcon(detection.network)}
                 endIcon={buildMessage(
                   field.state.meta.errors as string[],
@@ -70,7 +70,6 @@ function WalletField({ onChange, isPending }: Props) {
               />
               <Button
                 size="icon"
-                isLoading={isPending}
                 type="submit"
                 onClick={form.handleSubmit}
                 disabled={!addressDetection(field.state.value).isValid}
