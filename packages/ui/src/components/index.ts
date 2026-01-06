@@ -6,6 +6,7 @@ export * from "./CopyableText";
 export * from "./ErrorScreen";
 export * from "./Input";
 export * from "./Label";
+export * from "./NavigationMenu";
 export * from "./Pagination";
 export * from "./Table";
 export * from "./TextField";

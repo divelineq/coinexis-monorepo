@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 import type { Button } from "../Button";
+import { buttonVariants } from "../Button";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -49,7 +50,7 @@ function PaginationLink({
   className,
   isActive,
   to,
-  size = "small",
+  size = "icon",
   onClick,
   ...props
 }: PaginationLinkProps) {
@@ -59,7 +60,13 @@ function PaginationLink({
       aria-current={isActive ? "page" : undefined}
       data-slot="pagination-link"
       data-active={isActive}
-      className={className}
+      className={cn(
+        buttonVariants({
+          variant: isActive ? "outline" : "ghost",
+          size,
+        }),
+        className
+      )}
       onClick={(e) => {
         e.stopPropagation();
         e.preventDefault();
@@ -77,11 +84,12 @@ function PaginationPrevious({
   return (
     <PaginationLink
       aria-label="Go to previous page"
-      size="small"
-      className={cn("gap-1 px-2 sm:pl-2 cursor-pointer flex", className)}
+      size="default"
+      className={cn("gap-1 px-2.5 sm:pl-2.5 cursor-pointer", className)}
       {...props}
     >
       <ChevronLeftIcon />
+      <span className="hidden sm:block">Previous</span>
     </PaginationLink>
   );
 }
@@ -93,9 +101,11 @@ function PaginationNext({
   return (
     <PaginationLink
       aria-label="Go to next page"
-      className={cn("gap-1 px-2.5 sm:pr-2.5 cursor-pointer flex", className)}
+      size="default"
+      className={cn("gap-1 px-2.5 sm:pr-2.5 cursor-pointer", className)}
       {...props}
     >
+      <span className="hidden sm:block">Next</span>
       <ChevronRightIcon />
     </PaginationLink>
   );
