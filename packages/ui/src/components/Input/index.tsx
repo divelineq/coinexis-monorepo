@@ -16,7 +16,6 @@ function Input({
   endIcon,
   ...props
 }: InputProps) {
-  console.log(startIcon);
   return (
     <div className={cx("relative flex items-center", className)}>
       {startIcon && (

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node-dev --respawn --transpile-only --exit-child src/server.ts",
+        "cwd": "apps/server"
+      }
+    }
+  }
+}
