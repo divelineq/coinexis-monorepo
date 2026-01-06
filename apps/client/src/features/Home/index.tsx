@@ -6,7 +6,7 @@ import { FeatureItem } from "./FeatureItem";
 
 function Home() {
   return (
-    <main className="bg-background text-white font-orbitron min-h-screen overflow-x-hidden">
+    <main className="bg-background font-orbitron min-h-screen overflow-x-hidden">
       <section className="py-20 px-6 md:px-20">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -24,7 +24,7 @@ function Home() {
               Оценивай баланс, активы, токены, NFT и транзакции в одном месте —
               в удобном интерфейсе, без регистрации, в духе Web3.
             </p>
-            <Button size="lg">
+            <Button>
               <Link to="/market/spot">Попробовать</Link>
             </Button>
           </div>

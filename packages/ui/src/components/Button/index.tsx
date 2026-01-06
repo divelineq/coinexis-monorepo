@@ -1,72 +1,121 @@
-import { Slot } from "@radix-ui/react-slot";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import { PuffLoader } from "react-spinners";
-import { cn } from "../../lib/utils";
+import { cx } from "classix";
+import { LoaderCircle } from "lucide-react";
+import { captureOwnerStack } from "react";
 
-type Props = React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-    isLoading?: boolean;
-  };
+export interface BaseButtonProps {
+  /**
+   * Находится ли кнопка в состоянии загрузки
+   *
+   * @default false
+   */
+  loading?: boolean | null;
+  /**
+   * Вариант кнопки
+   *
+   * @default 'primary'
+   */
+  color?: VariantProps<typeof getClasses>["color"];
+  /**
+   * Иконка, отображаемая в начале кнопки
+   */
+  startIcon?: React.ReactNode;
+  /**
+   * Иконка, отображаемая на конце кнопки
+   */
+  endIcon?: React.ReactNode;
+  /**
+   * Анимация пульсации `animate-pulse opacity-90`
+   * @default false
+   */
+  pulse?: boolean;
+  /**
+   * Размеры кнопки
+   *
+   * @default "medium"
+   */
+  size?: VariantProps<typeof getClasses>["size"];
+  className?: string;
+  disabled?: boolean;
+  children?: React.ReactNode;
+  "aria-label"?: string;
+}
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+const getClasses = cva(
+  "cursor-pointer relative flex select-none items-center justify-center whitespace-nowrap rounded-md bg-center px-2 text-base font-normal ring-offset-1 ring-offset-paper transition-all duration-500 hover:bg-ripple-gradient hover:bg-15000 hover:bg-center focus-visible:ring-2 active:bg-full active:duration-0 disabled:pointer-events-none disabled:bg-gray-8/20 disabled:text-gray-8/25",
   {
     variants: {
-      variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+      color: {
+        primary:
+          "bg-primary text-primary-contrast ring-primary hover:bg-primary-dark hover:to-primary-dark active:bg-primary-light",
+        gray: "bg-gray-1 text-gray-8 ring-gray-1 hover:bg-gray-2 hover:to-gray-2 active:bg-gray-3",
+      },
+      pulse: {
+        true: "animate-pulse opacity-90",
+        false: false,
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        medium: "h-9",
+        small: "h-6",
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      color: "primary",
+      pulse: false,
+      size: "medium",
     },
   }
 );
 
 function Button({
-  className,
-  variant,
-  size,
-  isLoading,
+  color,
+  loading,
+  startIcon,
+  endIcon,
   children,
   disabled,
-  asChild = false,
+  className,
+  size = "medium",
+  pulse,
   ...props
-}: Props) {
-  const Comp = asChild ? Slot : "button";
+}: BaseButtonProps) {
+  if (
+    import.meta.env.DEV &&
+    !props["aria-label"] &&
+    (children == null || children === "" || typeof children === "boolean")
+  ) {
+    const ownerStack = captureOwnerStack();
+    console.warn("Компоненту Button не передан aria-label и children", {
+      children,
+      "aria-label": props["aria-label"],
+    });
+    console.warn(ownerStack);
+  }
 
   return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      disabled={isLoading || disabled}
+    <button
+      data-tooltip-content={props["aria-label"]}
+      data-tooltip-id="tooltip"
+      disabled={Boolean(disabled || loading)}
+      type="button"
       {...props}
+      className={cx(className, getClasses({ color, size, pulse }))}
     >
-      {isLoading ? (
-        <PuffLoader size={18} color="rgb(238, 238, 238)" />
-      ) : (
-        children
+      {startIcon && (
+        <span className={cx(children ? "pr-1" : null)}>{startIcon}</span>
       )}
-    </Comp>
+      <div className={cx("min-w-0 w-auto truncate", loading && "invisible")}>
+        {children}
+      </div>
+      {loading && (
+        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center">
+          <LoaderCircle size="1.25rem" />
+        </span>
+      )}
+      {endIcon && <div className={cx(children ? "pl-1" : null)}>{endIcon}</div>}
+    </button>
   );
 }
 
-export { Button, buttonVariants };
+export { Button };
