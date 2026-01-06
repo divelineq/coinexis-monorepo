@@ -7,7 +7,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    tailwindcss(),
     tanstackRouter({
       target: "react",
       autoCodeSplitting: true,
@@ -18,6 +17,7 @@ export default defineConfig({
         plugins: ["babel-plugin-react-compiler"],
       },
     }),
+    tailwindcss(),
   ],
   server: {
     proxy: {

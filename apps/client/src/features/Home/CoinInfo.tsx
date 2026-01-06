@@ -38,7 +38,7 @@ function BestCoinsInfo({ coin }: Props) {
       : "text-muted-foreground";
 
   return (
-    <Card className="w-full bg-background shadow-lg">
+    <Card className="w-full bg-background shadow-lg p-2">
       <CardHeader>
         <CardTitle className="text-xl">{data.symbol} — 24h</CardTitle>
       </CardHeader>

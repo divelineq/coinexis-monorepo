@@ -8,7 +8,7 @@ import dts from 'vite-plugin-dts';
 export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/packages/ui',
-  plugins: [tailwindcss() ,react(), dts({ entryRoot: 'src', tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json') })],
+  plugins: [react(),tailwindcss(), dts({ entryRoot: 'src', tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json') })],
   build: {
     outDir: './dist',
     emptyOutDir: true,

@@ -24,7 +24,7 @@ function Home() {
               Оценивай баланс, активы, токены, NFT и транзакции в одном месте —
               в удобном интерфейсе, без регистрации, в духе Web3.
             </p>
-            <Button size="lg" variant="outline">
+            <Button size="lg">
               <Link to="/market/spot">Попробовать</Link>
             </Button>
           </div>
