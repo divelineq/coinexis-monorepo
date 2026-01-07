@@ -1,15 +1,16 @@
-FROM node:20-alpine as build
+FROM oven/bun:1 AS build
 
 WORKDIR /client
-COPY package*.json ./
-RUN npm install 
+COPY package.json ./
+RUN bun install --frozen-lockfile
 COPY . .
-RUN npm build
+RUN bun run build
 
-FROM nginx:stable-alpine
-COPY --from=build /dist /usr/share/nginx/html
-COPY --from=build nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 3000
+FROM nginx:stable-alpine AS production
+COPY --from=build /client/dist /usr/share/nginx/html
+
+EXPOSE 80
 
 CMD ["nginx","-g", "daemon off;"]
+
 
