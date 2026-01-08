@@ -6,16 +6,18 @@
 
 ## Backend (BFF) и ключи
 
-Backend является BFF с использованием Bybit API. Для работы необходимо в `apps/client` создать файл `.env` и указать ключи:
+Backend является BFF с использованием Bybit API и Modula API. Для работы необходимо в `apps/server` создать файл `.env` и указать ключи:
 
-1) [Bybit API](https://www.bybit.com/future-activity/en/developer) [web:64]  
+1) [Bybit API](https://www.bybit.com/future-activity/en/developer) Необходим для мониторинга данных по криптовалюте и просмотра графика
 ```env
 BYBIT_API_KEY=key
 BYBIT_API_SECRET=secret
+```
 
-2) [Modula API](https://docs.mobula.io/rest-api-reference/authentification) [web:64]
+2) [Modula API](https://docs.mobula.io/rest-api-reference/authentification) Необходим для просмотра информации по кошельку (транзакции, nft, портфолио)
 ```env
 MODULA_API=key
+```
 
 ## Docker (в процессе)
 
@@ -23,6 +25,17 @@ docker compose up
 
 ## Запуск в dev
 
+```env
 bun i
-nx start
+```
 
+```env
+nx start
+```
+
+Можно так же по отдельности запустить client или server
+
+```env
+nx start:client
+nx start:server
+```
