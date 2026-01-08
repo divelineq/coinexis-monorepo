@@ -4,6 +4,14 @@
     "apps/server": {
       "entry": ["src/server.ts"],
       "project": ["src/**/*.{ts,tsx,js,jsx}"]
+    },
+    "apps/client": {
+      "entry": ["src/main.tsx"],
+      "project": ["src/**/*.{ts,tsx,js,jsx}"]
+    },
+    "packages/ui": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.{ts,tsx,js,jsx}"]
     }
   },
   "ignore": [
@@ -13,10 +21,6 @@
     "storybook-static/**"
   ],
   "typescript": {
-    "project": [
-      "tsconfig.base.json",
-      "apps/*/tsconfig*.json",
-      "packages/*/tsconfig*.json"
-    ]
+    "project": ["tsconfig.base.json"]
   }
 }
