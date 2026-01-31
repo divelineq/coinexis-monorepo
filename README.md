@@ -26,6 +26,11 @@ docker compose up
 ## Запуск в dev
 
 ```env
+curl -fsSL https://bun.com/install | bash
+```
+После успешной установки перезапустите терминал и дальше выполните
+
+```env
 bun i
 ```
 
