@@ -68,6 +68,8 @@
     "sonner": "catalog:",
     "tailwindcss": "catalog:",
     "use-debounce": "catalog:",
+    "viem": "catalog:",
+    "wagmi": "catalog:",
     "zod": "catalog:"
   }
 }

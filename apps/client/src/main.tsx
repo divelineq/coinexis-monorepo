@@ -6,9 +6,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { scan } from "react-scan";
 import { Toaster } from "sonner";
+import { WagmiProvider } from "wagmi";
 import { routeTree } from "./routeTree.gen";
 import "./styles.css";
 import { ThemeProvider } from "./ThemeProvider";
+import { wagmiConfig } from "./wagmiConfig";
 
 scan({ enabled: true });
 
@@ -28,6 +30,7 @@ const queryClient = new QueryClient();
 enableMocking().then(() => {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
+      <WagmiProvider config={wagmiConfig}>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <NuqsAdapter>
           <QueryClientProvider client={queryClient}>
@@ -42,6 +45,7 @@ enableMocking().then(() => {
           </QueryClientProvider>
         </NuqsAdapter>
       </ThemeProvider>
+      </WagmiProvider>
     </StrictMode>
   );
 });
