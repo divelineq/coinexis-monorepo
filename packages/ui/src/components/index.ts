@@ -8,6 +8,7 @@ export * from "./Input";
 export * from "./Label";
 export * from "./NavigationMenu";
 export * from "./Pagination";
+export * from "./Popover";
 export * from "./Table";
 export * from "./TextField";
 export * from "./WalletField";

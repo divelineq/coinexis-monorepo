@@ -9,6 +9,7 @@
     "oxlintrc",
     "solana",
     "tronweb",
-    "viem"
+    "viem",
+    "wagmi"
   ]
 }

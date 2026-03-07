@@ -2,3 +2,38 @@
 @import "../../../packages/ui/src/styles.css";
 
 @source "../../../packages/ui/src/components";
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) transparent;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgb(156 163 175);
+    border-radius: 9999px;
+    border: none;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(107 114 128);
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background: rgb(75 85 99);
+  }
+}

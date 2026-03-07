@@ -1,8 +1,8 @@
 import { Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { BybitWallet } from "./BybitWallet";
 import { ModeToggle } from "./ModeToggle";
 import { NavigationMenu as NavigationMenuComponent } from "./NavigationMenu";
+import { Wallet } from "./Wallet";
 
 export function Header() {
   return (
@@ -10,7 +10,7 @@ export function Header() {
       <div className="p-2 flex text-center justify-between items-center">
         <NavigationMenuComponent />
         <div className="flex gap-8 items-center">
-          <BybitWallet/>
+          <Wallet />
           <ModeToggle />
         </div>
       </div>
