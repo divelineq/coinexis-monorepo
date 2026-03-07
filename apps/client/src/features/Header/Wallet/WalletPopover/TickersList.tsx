@@ -21,7 +21,7 @@ export function TickersList({ tickers }: Props) {
     <div className="space-y-3 p-4 bg-card border border-border rounded-2xl shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-[--buy-color]" />
+          <TrendingUp className="w-5 h-5 text-buy" />
           Bybit Live
         </h2>
         <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">
