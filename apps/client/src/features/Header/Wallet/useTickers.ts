@@ -14,9 +14,9 @@ export function useTickers(params: Props) {
     queryKey: ["tickers", params.category],
     queryFn: ({ signal }) => api.tickers.getTickers(params, signal),
     select: (data) =>
-      data.result.list.sort(
-        (a, b) => Number(b.volume24h) - Number(a.volume24h),
-      ),
+      data.result.list
+        .slice(0, 100)
+        .sort((a, b) => Number(b.volume24h) - Number(a.volume24h)),
     refetchOnWindowFocus: false,
     staleTime: 5 * 60 * 1000,
     gcTime: 10 * 60 * 1000,

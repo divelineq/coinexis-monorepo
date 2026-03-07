@@ -31,7 +31,7 @@ export function WallerPopover({ balance, address, tickers, isLoading }: Props) {
           <BalanceInfo balance={balance} isLoading={isLoading} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="flex-1 flex flex-col w-100 gap-2 h-180">
+      <PopoverContent className="flex-1 flex flex-col w-100 gap-2 h-200 justify-between">
         <h1 className="flex gap-2 text-primary ">
           {chains.find((chain) => chain.id === currentChainId)?.name}
         </h1>
