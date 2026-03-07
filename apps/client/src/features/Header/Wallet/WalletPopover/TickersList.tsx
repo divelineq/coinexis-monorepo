@@ -10,7 +10,7 @@ export function TickersList({ tickers }: Props) {
   }
 
   return (
-    <ul className="overflow-y-auto p-2 border border-accent rounded-md w-full">
+    <ul className="overflow-y-auto p-2 border border-accent rounded-md size-full">
       <h2>Токены</h2>
       {tickers?.map((ticker) => {
         return (

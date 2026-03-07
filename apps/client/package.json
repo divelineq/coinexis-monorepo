@@ -70,6 +70,7 @@
     "use-debounce": "catalog:",
     "viem": "catalog:",
     "wagmi": "catalog:",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "react-spinners": "catalog:"
   }
 }

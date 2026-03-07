@@ -8,7 +8,13 @@ export function Wallet() {
   const { isConnected, isConnecting, chainId, address } = useConnection();
   const { mutate: connect } = useConnect();
   const connectors = useConnectors();
-  const { data: balance, isSuccess } = useBalance({
+  const {
+    data: balance,
+    isSuccess,
+    isLoading,
+    isFetching,
+    isPending,
+  } = useBalance({
     address,
     chainId,
   });
@@ -25,9 +31,14 @@ export function Wallet() {
     return <div>🔄 Подключаемся...</div>;
   }
 
-  if (isConnected && balance) {
+  if (isConnected) {
     return (
-      <WallerPopover balance={balance} address={address} tickers={tickers} />
+      <WallerPopover
+        isLoading={isLoading || isFetching || isPending}
+        balance={balance}
+        address={address}
+        tickers={tickers}
+      />
     );
   }
 

@@ -11,16 +11,17 @@ function Transactions() {
   const { data, isLoading, error, isFetched, isFetching } = useTransactions(
     wallet,
     pagination.pageSize,
-    pagination.pageIndex * pagination.pageSize
+    pagination.pageIndex * pagination.pageSize,
   );
 
-  if (error)
+  if (error) {
     return (
       <div>
         Кажется произошла непредвиденная ошибка:( Попробуйте перезагрузить
         страницу {error.message}
       </div>
     );
+  }
 
   if (data?.data.transactions.length === 0) {
     return (
