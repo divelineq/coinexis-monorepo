@@ -10,6 +10,7 @@ import { useChainId, useChains, useDisconnect } from "wagmi";
 import type { GetBalanceData } from "wagmi/query";
 import { BalanceInfo } from "./BalanceInfo";
 import { ChainList } from "./ChainList";
+import { ReceiveAction } from "./ReceiveAction";
 import { TickersList } from "./TickersList";
 
 type Props = {
@@ -46,12 +47,15 @@ export function WallerPopover({ balance, address, tickers, isLoading }: Props) {
           <ChainList chains={chains} currentChainId={currentChainId} />
           <TickersList tickers={tickers} />
         </div>
-        <Button
-          className="bg-red-500 hover:bg-red-800"
-          onClick={() => disconnect()}
-        >
-          Отключиться
-        </Button>
+        <div className="flex gap-2 w-full justify-between">
+          <ReceiveAction symbol={balance?.symbol} />
+          <Button
+            className="bg-red-500 hover:bg-red-800"
+            onClick={() => disconnect()}
+          >
+            Отключиться
+          </Button>
+        </div>
       </PopoverContent>
     </Popover>
   );
