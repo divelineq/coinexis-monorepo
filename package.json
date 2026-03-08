@@ -154,6 +154,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@base-ui/react": "^1.2.0",
     "radix-ui": "^1.4.3"
   }
 }
