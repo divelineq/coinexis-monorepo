@@ -63,14 +63,15 @@
     "react-dom": "catalog:",
     "react-error-boundary": "catalog:",
     "react-icons": "catalog:",
+    "react-qr-code": "catalog:",
     "react-scan": "catalog:",
+    "react-spinners": "catalog:",
     "react-tooltip": "catalog:",
     "sonner": "catalog:",
     "tailwindcss": "catalog:",
     "use-debounce": "catalog:",
     "viem": "catalog:",
     "wagmi": "catalog:",
-    "zod": "catalog:",
-    "react-spinners": "catalog:"
+    "zod": "catalog:"
   }
 }
