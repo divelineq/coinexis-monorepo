@@ -33,7 +33,7 @@ export function WallerPopover({ balance, address, tickers, isLoading }: Props) {
           <BalanceInfo balance={balance} isLoading={isLoading} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="flex-1 flex flex-col w-100 gap-2 h-200 justify-between">
+      <PopoverContent className="flex-1 flex flex-col min-w-100 gap-2 h-200 justify-between">
         <div className="size-full flex flex-col gap-2">
           <h1 className="flex gap-2 text-primary ">
             {chains.find((chain) => chain.id === currentChainId)?.name}
@@ -47,7 +47,7 @@ export function WallerPopover({ balance, address, tickers, isLoading }: Props) {
           </div>
           <ChainList chains={chains} currentChainId={currentChainId} />
           <TickersList tickers={tickers} />
-          <SendTransaction/>
+          <SendTransaction />
         </div>
         <div className="flex gap-2 w-full justify-between">
           <ReceiveAction symbol={balance?.symbol} />

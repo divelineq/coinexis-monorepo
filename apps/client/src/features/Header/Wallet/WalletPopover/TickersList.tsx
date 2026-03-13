@@ -29,7 +29,7 @@ export function TickersList({ tickers }: Props) {
         </span>
       </div>
 
-      <ul className="max-h-80 flex flex-col gap-1 overflow-y-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+      <ul className="max-h-60 flex flex-col gap-1 overflow-y-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
         {tickers.map((ticker, index) => {
           const price = Number(ticker.lastPrice);
           const change24h = Number(ticker.price24hPcnt);

@@ -1,6 +1,11 @@
-import { FormEvent, useState } from "react";
+import type { FormEvent } from "react";
+import { useState } from "react";
 import { parseEther } from "viem";
-import { useConnection, useSendTransaction, useWaitForTransactionReceipt } from "wagmi";
+import {
+  useConnection,
+  useSendTransaction,
+  useWaitForTransactionReceipt,
+} from "wagmi";
 
 export function SendTransaction() {
   const { isConnected } = useConnection();
@@ -8,36 +13,26 @@ export function SendTransaction() {
   const [to, setTo] = useState<`0x${string}` | "">("");
   const [amount, setAmount] = useState("0.01");
 
-  const {
-    data: hash,
-    error,
-    isPending,
-    sendTransaction,
-  } = useSendTransaction(); 
+  const { data: hash, error, isPending, mutate } = useSendTransaction();
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
-    useWaitForTransactionReceipt({ hash }); 
+    useWaitForTransactionReceipt({ hash });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!to || !amount) return;
+    if (!to || !amount) {
+      return;
+    }
 
-    sendTransaction({
-      to,
-      value: parseEther(amount), 
-    });
+    mutate({ to, value: parseEther(amount) });
   };
 
   return (
     <section className="space-y-4">
-      <h2 className="text-lg font-semibold">
-        Отправить ETH
-      </h2>
+      <h2 className="text-lg font-semibold">Отправить валюту</h2>
 
       {!isConnected && (
-        <p className="text-sm text-red-500">
-          Сначала подключи кошелёк.
-        </p>
+        <p className="text-sm text-red-500">Сначала подключите кошелёк.</p>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-2 max-w-sm">
@@ -67,24 +62,13 @@ export function SendTransaction() {
         </button>
       </form>
 
-      {hash && (
-        <p className="text-xs break-all">
-          Tx hash: {hash}
-        </p>
-      )}
-
+      {hash && <p className="text-xs break-all">Tx hash: {hash}</p>}
       {isConfirming && (
-        <p className="text-xs text-gray-500">
-          Ожидание подтверждения...
-        </p>
+        <p className="text-xs text-gray-500">Ожидание подтверждения...</p>
       )}
-
       {isConfirmed && (
-        <p className="text-xs text-green-600">
-          Транзакция подтверждена.
-        </p>
+        <p className="text-xs text-green-600">Транзакция подтверждена.</p>
       )}
-
       {error && (
         <p className="text-xs text-red-500">
           {(error as any).shortMessage || error.message}
