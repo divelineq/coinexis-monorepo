@@ -11,6 +11,7 @@ import type { GetBalanceData } from "wagmi/query";
 import { BalanceInfo } from "./BalanceInfo";
 import { ChainList } from "./ChainList";
 import { ReceiveAction } from "./ReceiveAction";
+import { SendTransaction } from "./SendTransaction";
 import { TickersList } from "./TickersList";
 
 type Props = {
@@ -46,6 +47,7 @@ export function WallerPopover({ balance, address, tickers, isLoading }: Props) {
           </div>
           <ChainList chains={chains} currentChainId={currentChainId} />
           <TickersList tickers={tickers} />
+          <SendTransaction/>
         </div>
         <div className="flex gap-2 w-full justify-between">
           <ReceiveAction symbol={balance?.symbol} />
